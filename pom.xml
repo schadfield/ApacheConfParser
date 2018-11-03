@@ -87,6 +87,7 @@
           <artifactId>maven-javadoc-plugin</artifactId>
           <configuration>
                 <excludePackageNames>apache.conf.global:apache.conf.directives</excludePackageNames>
+                <failOnError>false</failOnError>
           </configuration>
           <executions>
             <execution>
@@ -104,6 +105,20 @@
                 <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
             </configuration>
         </plugin>
+        
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+            </executions>
+        </plugin>
+
     </plugins>
   </build>
   
